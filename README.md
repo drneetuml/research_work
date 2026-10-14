@@ -1,7 +1,5 @@
 # Hybrid DCT Compression, Chaos Encryption, and Autoencoder Reconstruction
 
-Reproducibility code for the revised manuscript:
-
 **Hybrid DCT-Based Image Compression and Chaos Encryption with Autoencoder-Assisted Reconstruction Enhancement**
 
 ## Pipeline
@@ -13,13 +11,13 @@ The autoencoder is **not** used as a transmitter-side encoder. It is a receiver-
 ## Files
 
 - `main_experiment.py` — complete DIV2K training and 24-image Kodak evaluation, including compression, PSNR/MSE/SSIM, entropy, histogram variance, H/V/D correlation, NPCR/UACI, chi-square, Fourier spectral flatness, and timing.
-- `reviewer7_validation.py` — additional key-sensitivity and native-resolution Kodak validation.
+- `check_validation.py` — additional key-sensitivity and native-resolution Kodak validation.
 - `requirements.txt` — Python dependencies.
 - `.gitignore` — excludes datasets, trained weights, and generated results from Git.
 
 ## Data
 
-Prepare these directories:
+Prepare the directories:
 
 ```text
 DIV2K_train_HR/
@@ -55,12 +53,6 @@ python main_experiment.py
 
 The autoencoder protocol is 8 epochs with Adam, learning rate `1e-3` for epochs 1-4 and `3e-4` for epochs 5-8. The receiver-side residual blend is `alpha = 0.025`.
 
-## Reviewer-7 validation
-
-```bash
-python reviewer7_validation.py --kodak_dir /path/to/kodak --output_dir results_reviewer7
-```
-
 The key-sensitivity test changes only the forward logistic-map initial condition from `0.2718281828` to `0.271828182801` (`delta = 1e-12`) during decryption.
 
 The manuscript reports, over all 24 Kodak images:
@@ -76,8 +68,6 @@ The manuscript reports, over all 24 Kodak images:
 2. The chi-square/Fourier image-statistical analysis uses the low 8-bit ciphertext visualization defined in the implementation; the encrypted coefficient stream itself remains 16-bit.
 3. Chi-square histogram uniformity, Fourier spectral flatness, entropy, and correlation are diagnostic statistics; none alone proves cryptographic security.
 4. NPCR/UACI values in this compression-before-encryption pipeline are reported as measured and should not be interpreted as ideal differential-security performance.
-5. The current implementation is sequential; the repository does not claim unmeasured 1/2/4/8-thread speedups.
+5. The current implementation is sequential. the repository does not claim unmeasured 1/2/4/8-thread speedups.
 
-## Reproducibility
 
-For publication, record your exact Python/package versions and hardware in the final repository release. Do not commit DIV2K/Kodak datasets unless their licenses explicitly permit redistribution.
