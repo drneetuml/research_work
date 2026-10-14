@@ -13,7 +13,6 @@ The autoencoder is **not** used as a transmitter-side encoder. It is a receiver-
 - `main_experiment.py` — complete DIV2K training and 24-image Kodak evaluation, including compression, PSNR/MSE/SSIM, entropy, histogram variance, H/V/D correlation, NPCR/UACI, chi-square, Fourier spectral flatness, and timing.
 - `check_validation.py` — additional key-sensitivity and native-resolution Kodak validation.
 - `requirements.txt` — Python dependencies.
-- `.gitignore` — excludes datasets, trained weights, and generated results from Git.
 
 ## Data
 
