@@ -1,15 +1,3 @@
-"""
-Additional validation experiments for the revised manuscript:
-1) Key sensitivity on all 24 Kodak images.
-2) Native-resolution DCT/encryption/decryption/IDCT scalability check.
-
-This script uses the SAME Q50 DCT and chaotic permutation/bidirectional
-feedback-diffusion definitions as main_experiment.py.
-
-Usage:
-    python reviewer7_validation.py --kodak_dir /path/to/kodak --output_dir results_r7
-"""
-
 import argparse
 import os
 import glob
