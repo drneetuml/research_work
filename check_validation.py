@@ -6,7 +6,6 @@ import pandas as pd
 import cv2
 from scipy.fftpack import dct, idct
 from skimage.metrics import peak_signal_noise_ratio, structural_similarity
-
 Q50 = np.array([
     [16,11,10,16,24,40,51,61],
     [12,12,14,19,26,58,60,55],
